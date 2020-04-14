@@ -1,0 +1,56 @@
+//Primera versión (06/04)
+
+#include <iostream>
+#include <string>
+
+#include "Primer_ejercicio.h"
+#include "Segundo_ejercicio.h"
+#include "Tercer_ejercicio.h"
+#include "Cuarto_ejercicio.h"
+#include "Quinto_ejercicio.h"
+#include "Sexto_ejercicio.h"
+
+
+using namespace std;
+
+int main()
+{
+    PrimerEjercicio primero;
+    SegundoEjercicio segundo;
+    TercerEjercicio tercero;
+    CuartoEjercicio cuarto;
+    QuintoEjercicio quinto;
+    SextoEjercicio sexto;
+
+    cout << "\n\n\nPrimer ejercicio (18.7): \n";
+    primero.cifrarMensaje();
+    cin.get();
+    primero.descifrarMensaje();
+    cin.get();
+    primero.responderPreguntaC();
+
+    cout << "\n\n\nSegundo ejercicio (18.11): \n";
+    cin.get();
+    segundo.ingresarDatos();
+    segundo.nombreCompleto();
+
+    cout << "\n\n\nTercer ejercicio (18.12): \n";
+    cin.get();
+    tercero.jugar();
+
+    cout << "\n\n\nCuarto ejercicio (18.19): \n";
+    cin.get();
+    cuarto.leerString();
+    cuarto.separar();
+    
+    cout << "\n\n\nQuinto ejercicio (18.21): \n";
+    cin.get();
+    quinto.leerString();
+    quinto.reemplazar();
+    quinto.tokens();
+
+    cout << "\n\n\nSexto ejercicio (18.22): \n";
+    cin.get();
+    sexto.leerString();
+    sexto.voltear();
+}
