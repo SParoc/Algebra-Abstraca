@@ -1,0 +1,95 @@
+//Primera version (06/04/20)
+
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include "Primer_ejercicio.h"
+#include "Tercer_ejercicio.h"
+#include "Cuarto_ejercicio.h"
+#include "Sexto_ejercicio.h"
+#include "Septimo_ejercicio.h"
+#include "Octavo_ejercicio.h"
+#include "Noveno_ejercicio.h"
+#include "Decimo_ejercicio.h"
+#include "DecimoPrimer_ejercicio.h"
+#include "DecimoSegundo_ejercicio.h"
+
+using namespace std;
+
+int main()
+{
+	PrimerYSegundoEjercicio primero, segundo;
+	TercerEjercicio tercero;
+	CuartoYQuintoEjercicio cuarto, quinto;
+	SextoEjercicio sexto;
+	SeptimoEjercicio septimo;
+	OctavoEjercicio octavo;
+	NovenoEjercicio noveno;
+	DecimoEjercicio decimo;
+	DecimoPrimerEjercicio decimoprimero;
+	DecimoSegundo decimosegundo, decimotercer;
+
+	cout << "Practica_Lab.\n\nPresionar ENTER para pasar de un ejercicio al siguiente\n";
+	
+	cout << "Primer ejercicio: \n";
+	primero.leerString();
+	primero.StringACharArray();
+	primero.CharArrayAString();
+
+	cin.get();	
+	cout << "\n\n\nSegundo ejercicio: \n";
+	segundo.SegundoEjercicio();
+
+
+	cin.get();
+	cout << "\n\n\nTercer ejercicio: \n";
+	tercero.leerString();
+	tercero.minusculasAMayusculas();
+	tercero.mayusculasAMinusculas();
+
+
+	cin.get();
+	cout << "\n\n\nCuarto ejercicio: \n";
+	cuarto.EnteroAString();
+	cuarto.StringAEntero();
+	cuarto.Duplicar();
+	cin.ignore();
+
+	cin.get();
+	cout << "\n\n\nQuinto ejercicio: \n";
+	quinto.QuintoEjercicio();
+
+
+	cin.get();
+	cout << "\n\n\nSexto ejercicio: \n";
+	sexto.cambiarString();
+
+
+	cin.get();
+	cout << "\n\n\nSeptimo ejercicio: \n";
+	septimo.leerStrings();
+	septimo.contar();
+
+
+	cin.get();
+	cout << "\n\n\nOctavo ejercicio: \n";
+	octavo.leerString();
+	octavo.imprimirString();
+
+	cin.get();
+	cout << "\n\n\nNoveno ejercicio: \n";
+	noveno.leerStrings();
+	noveno.fusionarStrings();
+	
+	cout << "\n\n\nDecimo ejercicio: \n";
+	decimo.leerStrings();
+	decimo.reemplazar();
+	
+	cin.get();
+	cout << "\n\n\nDecimoprimer ejercicio: \n";
+	decimoprimero.leerStrings();
+	decimoprimero.seleccionar();
+	
+	cin.get();
+	cout << "\n\n\nDecimosegundo ejercicio: \n";
+}
