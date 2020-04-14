@@ -92,4 +92,5 @@ int main()
 	
 	cin.get();
 	cout << "\n\n\nDecimosegundo ejercicio: \n";
+	decimosegundo.operar();
 }
