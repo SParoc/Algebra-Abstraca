@@ -1,6 +1,6 @@
-/*Disculpe por no agregarlo antes, como estuve trabajando con clases en la primer version
-por alguna razon, no funcionaba esta misma implementacion, es por eso que decidi
-hacer este ejercicio con un archivo .cpp aparte*/
+/*Disculpe por no agregarlo antes, como estuve trabajando con clases en la primer
+version por alguna razon, no funcionaba esta misma implementacion, es por eso que
+decidi hacer este ejercicio con un archivo .cpp aparte*/
 
 #include <iostream>
 #include <fstream>
@@ -10,21 +10,20 @@ using namespace std;
 
 int main()
 {
-	ifstream archivo;
-	archivo.open("numeros.txt", ios::in);
+	ifstream file;
+	string numStr;
+	int num;
+	int sum = 0;
 
-	string dato;
-	int numero;
-	int sumatoria = 0;
+	file.open("numeros.txt", ios::in);
 
-	while(!archivo.eof())
+	while(!file.eof())
 	{
-		archivo >> dato;
-		numero= stoi(dato);
+		file >> numStr;
+		num= stoi(numStr);
 
-		cout << numero<<endl;
-		sumatoria += numero;
+		cout << num <<endl;
+		sum += num;
 	}
-	cout << "\nSuma: " << sumatoria;
-	archivo.close();
+	cout << "\nSuma: " << sum;
 }
