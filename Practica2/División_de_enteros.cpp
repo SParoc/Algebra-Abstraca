@@ -1,27 +1,32 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
+int mod(int a, int b);
+void div_int(int a, int n, int &q, int &r);
+
 int main ()
 {
-  int a, q, n, r;
+  int a, n, q = 0, r = 0;
+  cout<<"a: "; cin>>a;
+  cout<<"n: "; cin>>n;
 
-  cout<<"\n a = q * n + r";
-
-  cout<<"\n\nIntroducir a: ";
-  cin>>a;
-
-  cout<<"Introducir n: ";
-  cin>>n;
-
-  r = a%n;
-  q = (a - r)/n;
-
-  if (r < 0)
-  {
-    r = n + r;
-    q -= 1;
-  }
+  div_int(a,n,q,r);
 
   cout<<"\n"<<a<<" = "<< q << " * " << n << " + " << r;
+
+}
+
+int mod(int a, int b)
+{
+	int m;
+	m = a + ((abs(a / b) + 1) * b);
+	return m - ((m / b) * b);
+}
+
+void div_int(int a, int n, int &q, int &r)
+{
+  r = mod(a,n);
+  q = (a - r)/n;
 }
