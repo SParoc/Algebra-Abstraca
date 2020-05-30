@@ -61,7 +61,7 @@ string AlgsCifrado::railFence(string plainText, string cipherText, int clave)
 		plainText.erase(plainText.find(' '), 1);
 	}
 
-	rf_space = clave + (clave - 2);
+	// ta mal ---> rf_space = clave + (clave - 2);
 
 	for (int i = 0; i < plainText.length(); i++)
 	{
