@@ -1,16 +1,34 @@
-#include <iostream>
 #include "AlgsCifrado.h"
+#include <iostream>
 
 int main()
 {
-    std::cout << "3 algoritmos de cifrado\nSe pueden cambiar todos los textos claros\nSe recomienda no cambiar las claves\n\n";
+    cout << "3 algoritmos de cifrado\n\n";
 
     AlgsCifrado cifrado;
+    string rf_str, pb_str, mb_str;
+   
+    int op;
 
-    cout << "Cifrado monomio-binomio: \nTexto claro: el cifrado monomio-binomio no me gusta\nNumeros claves: 2, 7\nPalabra mnemotecnica: denarios\n";
-    cout << "Cifrado: " << cifrado.monomioBinomio("el cifrado monomio-binomio no me gusta", "", 2, 7, "denarios") << "\n\n"; 
-    cout << "Cifrado Rail Fence: \nTexto claro: el cifrado rail fence tampoco me gusta\nClave: 3\n";
-    cout << "Cifrado: " << cifrado.railFence("el cifrado rail fence tampoco me gusta","", 3) << "\n\n";
-    cout << "Cifrado Rail Fence: \nTexto claro(sin j) : el cifrado polybios me gusta menos\n";
-    cout << "Cifrado: " << cifrado.polyBios("el cifrado polybios me gusta menos", "") << "\n\n";
+    cout << "1. Monomio-Binomio\n2. Rail Fence\n3. Polybios\n\n";
+    cin >> op;
+
+    switch (op)
+    {
+    case 1:
+        getline(cin.ignore(), mb_str);
+        cout << "Cifrado: " << cifrado.monomioBinomio(mb_str, 2, 7, "denarios") << "\n\n";
+        break;
+    case 2:
+        getline(cin.ignore(), rf_str);
+        cout << "Cifrado: " << cifrado.railFence(rf_str) << "\n\n";
+        break;
+    case 3:
+        getline(cin.ignore(), pb_str);
+        cout << "Cifrado: " << cifrado.polyBios(pb_str) << "\n\n";
+        break;
+    default:
+        cout << "Opcion no valida\n"; 
+        break;
+    }
 }
