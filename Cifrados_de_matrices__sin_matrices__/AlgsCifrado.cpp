@@ -2,17 +2,16 @@
 
 AlgsCifrado::AlgsCifrado()
 {
-	rf_space = 0;
-	rf_space2 = 0;
-	rf_begin = 0;
-	rf_pos = 0;
 	pb_pos = 0;
 	mb_pos = 0;
-	rf_swap = false;
+
+	rf_key = 6;
 }
 
-string AlgsCifrado::monomioBinomio(string plainText, string cipherText, int num1, int num2, string mnemo)
+string AlgsCifrado::monomioBinomio(string plainText, int num1, int num2, string mnemo)
 {
+	string cipherText;
+
 	mnemo.insert(num1," ");
 	mnemo.insert(num2, " ");
 
@@ -54,58 +53,70 @@ string AlgsCifrado::monomioBinomio(string plainText, string cipherText, int num1
 	return cipherText;
 }
 
-string AlgsCifrado::railFence(string plainText, string cipherText, int clave)
+string AlgsCifrado::railFence(string plainText)
 {
+	string cipherText;
+
+	int begin = 0, pos = 0;
+	int space1 = rf_key *2 - 2, space2 = 0;
+
 	while (plainText.find(' ') != -1)
 	{
 		plainText.erase(plainText.find(' '), 1);
 	}
 
-	// ta mal ---> rf_space = clave + (clave - 2);
-
 	for (int i = 0; i < plainText.length(); i++)
 	{
-		if (rf_pos >= plainText.length())
+		if (pos >= plainText.length())
 		{
-			rf_begin++;
-			rf_pos = rf_begin;
-			rf_space -= 2;
-			rf_space2 += 2;
-			rf_swap = false;
+			begin++;
+			pos = begin;
+			space1 -= 2;
+			space2 += 2;
 		}
-		if (rf_begin == 0) //Primera fila
+
+		if (begin == 0)
 		{
-			cipherText += plainText[rf_pos];
-			rf_pos += rf_space;
+			cipherText += plainText[pos];
+			pos += space1;
 		}
-		else if (rf_begin == clave - 1)//Ultima fila
+		else if (begin == rf_key - 1)
 		{
-			cipherText += plainText[rf_pos];
-			rf_pos += rf_space2 ;
+			cipherText += plainText[pos];
+			pos += space2;
 		}
-		else//Filas del medio, donde hay dos espaciados diferentes. Se intercalan
+		else
 		{
-			cipherText += plainText[rf_pos];
-			if (rf_swap == false)
+			cipherText += plainText[pos];
+			pos += space1;
+
+			if (pos < plainText.length())
 			{
-				rf_pos += rf_space;
-				rf_swap == true;
-			}
-			else
-			{
-				if (rf_pos + rf_space2 < plainText.length())
-				{
-					rf_pos += rf_space2;
-				}
-				rf_swap = false;
+				cipherText += plainText[pos];
+				pos += space2;
+				i++;
 			}
 		}
 	}
 	return cipherText;
 }
-	
-string AlgsCifrado::polyBios(string plainText, string cipherText)
+
+string AlgsCifrado::descRailFence(string cipherText)
 {
+	string plainText;
+	/*
+	for (int i = 0; i < cipherText.length(); i++)
+	{
+
+	}*/
+
+	return plainText;
+}
+	
+string AlgsCifrado::polyBios(string plainText)
+{
+	string cipherText;
+
 	while (plainText.find(' ') != -1)
 	{
 		plainText.erase(plainText.find(' '), 1);
@@ -135,25 +146,23 @@ string AlgsCifrado::polyBios(string plainText, string cipherText)
 			cipherText += pb_let[4];
 		}
 
-		if (pb_pos % 5 == 0)
+		switch (pb_pos % 5)
 		{
+		case 0:
 			cipherText += pb_let[0];
-		}
-		else if (pb_pos % 5 == 1)
-		{
+			break;
+		case 1:
 			cipherText += pb_let[1];
-		}
-		else if (pb_pos % 5 == 2)
-		{
+			break;
+		case 2:
 			cipherText += pb_let[2];
-		}
-		else if (pb_pos % 5 == 3)
-		{
+			break;
+		case 3:
 			cipherText += pb_let[3];
-		}
-		else
-		{
+			break;
+		default:
 			cipherText += pb_let[4];
+			break;
 		}
 	}
 
