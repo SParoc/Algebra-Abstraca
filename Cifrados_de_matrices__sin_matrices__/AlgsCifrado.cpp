@@ -2,15 +2,13 @@
 
 AlgsCifrado::AlgsCifrado()
 {
-	pb_pos = 0;
-	mb_pos = 0;
-
-	rf_key = 6;
+	rf_key = 5;
 }
 
 string AlgsCifrado::monomioBinomio(string plainText, int num1, int num2, string mnemo)
 {
 	string cipherText;
+	int mb_pos;
 
 	mnemo.insert(num1," ");
 	mnemo.insert(num2, " ");
@@ -104,11 +102,8 @@ string AlgsCifrado::railFence(string plainText)
 string AlgsCifrado::descRailFence(string cipherText)
 {
 	string plainText;
-	/*
-	for (int i = 0; i < cipherText.length(); i++)
-	{
 
-	}*/
+	//Por completar
 
 	return plainText;
 }
@@ -116,6 +111,7 @@ string AlgsCifrado::descRailFence(string cipherText)
 string AlgsCifrado::polyBios(string plainText)
 {
 	string cipherText;
+	int pb_pos;
 
 	while (plainText.find(' ') != -1)
 	{
@@ -167,4 +163,29 @@ string AlgsCifrado::polyBios(string plainText)
 	}
 
 	return cipherText;
+}
+
+string AlgsCifrado::descPolyBios(string cipherText)
+{
+	string plainText;
+	int pb_pos , pb_pos2;
+	int abc_pos = 0;
+
+	for (int i = 0; i < cipherText.length(); i += 2)
+	{
+		pb_pos = pb_let.find(cipherText[i]);
+		pb_pos2 = pb_let.find(cipherText[i + 1]);
+
+		for (int i = 0; i < pb_pos; i++)
+		{
+			abc_pos += 5;
+		}
+		abc_pos += pb_pos2;
+
+		plainText += pb_abc[abc_pos];
+
+		pb_pos = pb_pos2 = abc_pos = 0;
+	}
+
+	return plainText;
 }
