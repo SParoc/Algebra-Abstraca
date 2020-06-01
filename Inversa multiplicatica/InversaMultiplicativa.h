@@ -3,10 +3,10 @@
 
 using namespace std;
 
-class InversaModulo
+class InversaMultiplicativa
 {
 public:
-	InversaModulo();
+	InversaMultiplicativa();
 	void EuclidesExtendido(int a, int b);
 
 private:
