@@ -1,4 +1,4 @@
-#include "InversaModulo.h"
+#include "InversaMultiplicativa.h"
 
 InversaModulo::InversaModulo()
 {
