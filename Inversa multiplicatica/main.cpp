@@ -1,9 +1,9 @@
 #include <iostream>
-#include "InversaModulo.h"
+#include "InversaMultiplicativa.h"
 
 int main()
 {
-    InversaModulo inversa;
+    InversaMultiplicativa inversa;
     int a, b;
 
     cout << "Encontrar la inversa de: ";
