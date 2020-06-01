@@ -1,11 +1,11 @@
 #include "InversaMultiplicativa.h"
 
-InversaModulo::InversaModulo()
+InversaMultiplicativa::InversaMultiplicativa()
 {
 	r = q = s = t = 0;
 }
 
-void InversaModulo::EuclidesExtendido(int a, int b)
+void InversaMultiplicativa::EuclidesExtendido(int a, int b)
 {
 	int s1 = 1, s2 = 0, t1 = 0, t2 = 1;
 
